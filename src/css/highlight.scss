@@ -1,0 +1,41 @@
+.background-fade {
+  background: #000000;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease-out;
+}
+
+.highlighted {
+  z-index: 999998 !important;
+}
+
+.relativePosition {
+  position: relative;
+}
+
+.helperLayer {
+  box-sizing: content-box;
+  position: absolute;
+  z-index: 9999998;
+  border-radius: 4px;
+  transition: all 0.3s ease-out;
+  border: solid 3px #FFF;
+
+  * {
+    box-sizing: content-box;
+
+    &:before {
+      box-sizing: content-box;
+    }
+
+    &:after {
+      box-sizing: content-box;
+    }
+  }
+}

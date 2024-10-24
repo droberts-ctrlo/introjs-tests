@@ -1,3 +1,2 @@
-import "./css/external.scss";
-import "./css/styles.scss";
+import "./css/index.scss";
 import "./ts/main";

@@ -1,0 +1,38 @@
+#tooltip {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  z-index: 999999 !important;
+  max-width: 300px;
+
+  #tip-header {
+    background: #000;
+    color: #FFFFFF;
+    padding: 5px;
+    border-radius: 4px 4px 0 0;
+    font-size: 14pt;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  #tip-body {
+    background: #FFFFC0;
+    color: #000000;
+    padding: 5px;
+    border-radius: 0;
+    font-size: 12pt;
+    text-align: left;
+  }
+
+  #tip-footer {
+    background: #FFFFC0;
+    padding: 1rem;
+    border-radius: 0 0 4px 4px;
+    border-top: solid 1px #000;
+
+    .btn {
+      text-align: center;
+    }
+  }
+}
