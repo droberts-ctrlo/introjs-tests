@@ -1,0 +1,28 @@
+body {
+    padding-top: 2rem;
+}
+
+header {
+    padding: 1rem;
+}
+
+main {
+    padding: 1rem;
+    border: solid 1px #333;
+}
+
+label {
+    font-weight: bold;
+}
+
+footer {
+    padding: 1rem;
+
+    .row {
+        padding-bottom: 1rem;
+
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+    }
+}
