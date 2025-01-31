@@ -1,24 +1,49 @@
+/**
+ * Highlighter class
+ * @property {{x: number, y:number}} defaultPlacement - Default position of the highlighter
+ * @property {JQuery<HTMLElement> | null} currentHighlight - Current highlighted element
+ */
 export class Highlighter {
   defaultPlacement = {x: 0, y: 0};
   currentHighlight: JQuery<HTMLElement> | null = null;
   private $helperLayer: JQuery<HTMLElement>;
 
-  get x() {
+  /**
+   * Get the x position of the highlighter
+   * @returns {number} - The x position of the highlighter
+   */
+  get x(): number {
     return Number.parseInt(this.$helperLayer.css("left"));
   }
 
-  get y() {
+  /**
+   * Get the y position of the highlighter
+   * @returns {number} - The y position of the highlighter
+   */
+  get y(): number {
     return Number.parseInt(this.$helperLayer.css("top"));
   }
 
-  get height() {
+  /**
+   * Get the height of the highlighter
+   * @returns {number} - The height of the highlighter
+   */
+  get height(): number {
     return Number.parseInt(this.$helperLayer.css("height"));
   }
 
-  get width() {
+  /**
+   * Get the width of the highlighter
+   * @returns {number} - The width of the highlighter
+   */
+  get width(): number {
     return Number.parseInt(this.$helperLayer.css("width"))
-  };
+  }
 
+  /**
+   * Check if the highlighter is in the default position
+   * @returns {boolean} - True if the highlighter is in the default position, false otherwise
+   */
   get isDefaultPosition() {
     return this.x === this.defaultPlacement.x &&
       this.y === this.defaultPlacement.y &&
@@ -26,6 +51,9 @@ export class Highlighter {
       this.height === 1;
   }
 
+  /**
+   * Create a new Highlighter
+   */
   constructor() {
     this.defaultPlacement = {x: window.innerWidth / 2, y: window.innerHeight / 2};
     this.$helperLayer = $(".helperLayer");
@@ -39,6 +67,9 @@ export class Highlighter {
     this.$helperLayer.hide();
   }
 
+  /**
+   * Reset the position of the highlighter to the default position
+   */
   resetPosition() {
     if (!this.isDefaultPosition) {
       this.$helperLayer.css({
@@ -50,12 +81,20 @@ export class Highlighter {
     }
   }
 
+  /**
+   * Show the highlighter
+   */
   show() {
     const fade = $(".background-fade");
     fade.show();
     this.$helperLayer.show();
   }
 
+  /**
+   * Highlight an element
+   * @template {HTMLElement} T - The type of the element to highlight (default: HTMLElement)
+   * @param {JQuery<T>} element - The element to highlight
+   */
   highlight<T extends HTMLElement = HTMLElement>(element: JQuery<T>) {
     if (this.currentHighlight) {
       this.currentHighlight.removeClass("highlighted");
@@ -80,6 +119,9 @@ export class Highlighter {
     });
   }
 
+  /**
+   * Clear the highlight
+   */
   clearHighlight() {
     this.resetPosition()
     setTimeout(() => {

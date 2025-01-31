@@ -2,6 +2,12 @@ import {Highlighter} from "./lib/highlighter";
 import {Stepper} from "./lib/stepper";
 import {Tooltip} from "./lib/tooltip";
 
+/**
+ * This is a simple example of how to use the Highlighter, Stepper, and Tooltip classes.
+ * This example will highlight the header, navigation, dropdown, search bar, and all input fields.
+ * It will also display a tooltip with a title and intro for each step.
+ */
+
 const heading_steps = () => [{
   title: "Welcome",
   intro: "Welcome to Dave's awesome demo!!",
@@ -44,9 +50,8 @@ $(() => {
     stepper.on('step', (step) => {
       if (step.element) {
         highlighter.highlight(step.element);
-        if (!tooltip.shown)
-          tooltip.show(step.element.offset().left, step.element.offset().top + step.element.height());
-        tooltip.update(step.element.offset().left+50, (step.element.offset().top + step.element.height()) + 50, step.title, step.intro);
+        if (!tooltip.shown) tooltip.show(step.element.offset().left, step.element.offset().top + step.element.height());
+        tooltip.update(step.element.offset().left + 50, (step.element.offset().top + step.element.height()) + 50, step.title, step.intro);
       } else {
         highlighter.show();
         highlighter.resetPosition()
